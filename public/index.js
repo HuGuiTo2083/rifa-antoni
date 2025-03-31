@@ -8,13 +8,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     ig.addEventListener('click', () => {
-       window.location.href = "https://www.instagram.com/finca_lisboa_ranch?igsh=dXRqbGk3cW9qNnZ6"
+       window.location.href = "https://www.instagram.com/ganamosconantoni?igsh=MTFyaGRrdzN0cnJ4NQ=="
 
     })
 
     fb.addEventListener('click', () => {
    
-        window.location.href = "https://wa.me/+584243131639"
+        window.location.href = "https://wa.me/+584121863814"
 
     })
 
