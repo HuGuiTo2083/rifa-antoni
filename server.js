@@ -28,8 +28,7 @@ app.use(
     origin: [
       'https://ganamosconantoni.com',
       'http://localhost:3000',
-      'http://127.0.0.1:3000',
-       'https://ganamosconantoni.onrender.com'
+      'http://127.0.0.1:3000'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
@@ -360,6 +359,9 @@ app.post('/api/pedidos', async (req, res) => {
       pedido: nuevoPedido
     });
   } catch (error) {
+    console.error('Mensaje de error:', error.message);
+console.error('Stack completo del error:', error.stack);
+
     console.error('Error al guardar el pedido:', error);
     return res.status(500).json({
       success: false,
@@ -538,6 +540,9 @@ app.get('/api/ventatotal', async (req, res) => {
     return res.json(totalVendidos.total);
 
   } catch (error) {
+    console.error('Mensaje de error:', error.message);
+console.error('Stack completo del error:', error.stack);
+
     console.error('Error inesperado al obtener el total de los boletos vendidos hasta ahora:', error);
     return res.status(500).json({ error: 'Error interno al obtener el total de boletos vendidos' });
   }
