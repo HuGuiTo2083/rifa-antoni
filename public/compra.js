@@ -17,10 +17,26 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         //-----extraer el numero de tickets
         const response = await fetch('/api/ventatotal');
-        const totalBoletos = await response.json();
+        let totalBoletos 
+        console.log("antes")
+        try {
+            totalBoletos = await response.json();
+            console.log("holis")
+
+        } catch (error) {
+            console.log("hola")
+            totalBoletos = 0
+        }
         // console.log('Tipo de dato:', typeof totalBoletos);
         // console.log('Valor:', totalBoletos);
-        updateProgress(parseInt(totalBoletos))
+if (isNaN(parseInt(totalBoletos))){
+    updateProgress(0)
+
+}
+else{
+    updateProgress(parseInt(totalBoletos))
+
+}
         // --------------------
 
 

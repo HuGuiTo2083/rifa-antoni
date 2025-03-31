@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Initialize countdown
-    startCountdown();
+    //startCountdown();
 
     // Smooth scroll for buttons
     document.querySelectorAll('.buy-button').forEach(button => {
