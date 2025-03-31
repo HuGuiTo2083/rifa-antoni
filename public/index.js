@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function actualizarContador() {
         // Fecha objetivo: 18 de enero 2025, 5:00 PM
-        const fechaObjetivo = new Date('2025-04-15T17:00:00');
+        const fechaObjetivo = new Date('2025-05-15T17:00:00');
         // Fecha actual
         const ahora = new Date();
         
