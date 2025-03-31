@@ -1,0 +1,389 @@
+:root {
+    --primary-color: #3640b3;
+    --secondary-color: #355e53;
+    --accent-color: #ffffff;
+    --text-color: #ffffff;
+    --background-color: #25302f;
+}
+
+body {
+    background-color: #252530;
+    
+    background-attachment: fixed;
+    /* Hace que el fondo se mueva con el scroll */
+    background-size: cover;
+    /* Asegura que el fondo cubra toda la pantalla */
+    background-repeat: no-repeat;
+    /* El fondo no se repite */
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.fondoImg{
+    background-image: url('images/antoni_logo.png');
+z-index: -1000;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.1;
+    object-fit: cover;
+}
+
+.hero{
+    background-color: #354272;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 80px;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    padding: 25px;
+    margin-bottom: 30px;
+    padding-top: 20px;
+}
+
+.hero-items{
+    width: 90%;
+    height: 90%;
+    border-radius: 6px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #e9cb69;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 15px;
+    
+
+}   
+
+.glow-button {
+    animation: buttonGlow 2s infinite;
+}
+
+.glow-button22 {
+    animation: buttonGlow22 2s infinite;
+}
+
+@keyframes buttonGlow {
+    0%, 100% {
+        box-shadow: 0 0 10px #e9cb69;
+    }
+    50% {
+        box-shadow: 0 0 20px #e9cb69, 0 0 30px #e9cb69;
+    }
+}
+
+
+@keyframes buttonGlow22 {
+    0%, 100% {
+        box-shadow: 0 0 10px #3640b3;
+    }
+    50% {
+        box-shadow: 0 0 20px #3640b3, 0 0 30px #3640b3;
+    }
+}
+
+@keyframes buttonGlow2 {
+    0%, 100% {
+        box-shadow: 0 0 10px #ffd621;
+    }
+    50% {
+        box-shadow: 0 0 20px #ffd621, 0 0 30px #ffd621;
+    }
+}
+
+
+#contenedorPedidos{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 230px); /* 200px es el ancho de cada contenedor */
+    
+   justify-content: center;
+    gap:20px;
+    column-gap: 50px;
+}
+
+#contenedorRegistros{
+    width: 100%;
+    /* background-color: #58ff3f; */
+    display: flex;
+align-items: center;
+justify-content: center;
+    position: relative;
+    flex-direction: column;
+    height: auto;
+}
+
+#contenedorGanador{
+    width: 100%;
+    /* background-color: #58ff3f; */
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    grid-template-columns: repeat(auto-fit, 120px);
+    height: auto;
+    gap: 13px;
+}
+
+.boleto {
+    border:none;
+    border-radius: 3px;;
+    width: 100px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black; /* para visualizar el borde */
+    font-weight: bold;
+  }
+  .boleto.aprobadoo {
+    cursor: pointer;
+    background-color: #ffd621;
+    color: #8b7513;
+  }
+  .boleto.disponible {
+    background-color: white;
+    color: black;
+  }
+
+.dvFiltro{
+    width: 98%;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #ffd621;
+    border-radius: 5px;
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#contenedorConsultas{
+    width: 100%;
+    /* background-color: #58ff3f; */
+    /* height: 100px; */
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-consu:nth-child(2) .subDiv:nth-child(2){
+ font-size: clamp(8px, 2vw, 15px)
+}
+
+.item-consu:nth-child(5) .subDiv:nth-child(2){
+    overflow-y: auto;
+    display: flex;
+    align-items: start;
+    padding-top: 8px;
+    margin-bottom: 10px;
+}
+
+.divConsu{
+    width: 90%;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr 3fr;
+    grid-template-rows: 150px;
+   column-gap: 5px;
+    overflow: hidden;
+    
+}
+
+.subDiv{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  font-weight: 900;
+  
+}
+
+.subDiv:nth-child(1){
+    font-family: 'Monserrat';
+    font-size: 10px;
+    color: white;
+    background-color: #615726;
+
+}
+
+.btContact{
+    border:none;
+    cursor: pointer;
+    background-color: #8b7510;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill:white;
+}
+
+
+
+.subDiv:nth-child(2){
+    background-color: #ffd621;
+    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: clamp(10px, 2vw, 17px);
+    color: black;
+    
+
+}
+
+.item-consu{
+  /* background-color: #35726a; */
+  width: 100%;
+  height:100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 3fr;
+  row-gap: 10px;
+  
+
+}
+
+.button:not(.btContact){
+    background-color: #3640b3;
+    border-radius: 1rem;
+    height: 60px;
+    color: #ffffff;
+    border:none;
+    font-size: 13px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+input:focus{
+    outline: none;
+}
+
+input{
+    height: 50px;
+    border-radius: 1rem;
+    border: 2px white solid;
+    background-color: #3640b3;
+    color:#ffffff;
+    padding-left: 10px;
+}
+
+input::placeholder{
+   color: #ffffffc5;
+}
+
+.aprobado{
+    background-color: #ffd621;
+    color: #7a6b28;
+}
+
+.pendiente{
+    border: solid #ffd621 5px;
+    background-color: #7a6b28;
+    color: #ffd621;
+
+}
+
+@font-face {
+    font-family: xd;
+    src: url('fonts/6680-fontps.ttf');
+}
+
+.dvPedido{
+    width: 250px;
+    
+    border-radius: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    animation: buttonGlow2 2s infinite;
+    font-size: 15px;
+    font-weight: 900;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+
+.btnAprobar{
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    border-radius: 1rem;
+    background-color: #58ff3f;
+    font-size: 15px;
+    font-weight: 900;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+.btnCancelar{
+    cursor: pointer;
+    width: 50px;
+    height: 30px;
+    border-radius: 1rem;
+    background-color: #ff3f3f;
+    font-size: 15px;
+    font-weight: 900;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(255, 255, 255);
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+/* El modal ocupa toda la pantalla y, por defecto, no se ve (display: none) */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 999; 
+    left: 0; 
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color:#213e39;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    /* Fondo semi-transparente para oscurecer el resto */
+
+  }
+  
+  /* Contenido centrado */
+  .modal-content {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    margin: 10% auto;
+    width: 300px; 
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+  }
+
+  .btnCancelar:disabled{
+    cursor: not-allowed;
+    opacity: 0.6;      /* ligeramente grisado */
+    pointer-events: none; /* evita que sea clickeable */
+  }
+  
+  /* Botón de cerrar en la esquina */
+  .close {
+    position: absolute;
+    right: 16px;
+    top: 8px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  

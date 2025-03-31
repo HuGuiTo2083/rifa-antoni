@@ -1,0 +1,350 @@
+body {
+    background: linear-gradient(to bottom, rgb(252, 158, 158), white); 
+    width: 100%;
+    background-attachment: fixed;
+    /* Hace que el fondo se mueva con el scroll */
+    background-size: cover;
+    /* Asegura que el fondo cubra toda la pantalla */
+    background-repeat: no-repeat;
+    /* El fondo no se repite */
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.header {
+
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background-color: #f9d0d0;
+    margin-bottom: 50px;
+}
+
+@font-face {
+    font-family: pri;
+    src: url('fonts/Pricedown\ Bl.otf');
+}
+
+.dvMenu {
+    display: flex;
+    gap: 20px;
+}
+
+
+
+a {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-right: 40px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(0, 0, 0)
+}
+#imgLogo {
+    object-fit: cover;
+    height: 40%;
+    margin-left: 30px;
+    border-radius: 0.5rem;
+    
+}
+
+.dvLo{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.iq{
+    font-family: pri;
+    font-size: 27px;
+    color: #da4141;
+    font: italic;
+    margin-bottom: 30px;
+}
+.iq2{
+    font-family: pri;
+    font-size: 27px;
+    color: #692020;
+    font: italic;
+    margin-bottom: 30px;
+}
+
+.dvIq{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    margin-top: 30px;
+}
+
+.red{
+    color: rgb(226, 68, 68);
+}
+
+
+.dvLo img{
+  height: 50px;
+  object-fit: cover;
+  border-radius: 0.2rem;
+}
+
+
+#lbPagos{
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: black;
+    margin-left: 20px;
+}
+
+@font-face {
+    font-family: xd;
+    src: url('fonts/6680-fontps.ttf');
+}
+.dvSuccess{
+    width: 200px;
+    height: 90px;
+    font-size: 12px;
+    font-weight: 900;
+    color:#1a4f16;
+    background-color: #70df68;
+    border-radius: 1rem;
+    display: flex;
+    
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 50px;
+    padding-top: 20px;
+    display: none;
+    margin-bottom: 20px;
+}
+
+#btPedir{
+    background-color: #ef1010;
+    border-radius: 1rem;
+    color: white;
+    font-size: 17px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 140px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.dvImage{
+    margin-top: 50px;
+   width: 100%;
+   height:1000px;
+   background-color: #efb810;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin-bottom: 70px;
+}
+
+.lbForm2{
+    margin-top: 20px;
+    font-size: 25px;
+    font-family: xd;
+    font-weight: 900;
+    text-align: center;
+
+
+}
+
+.dvImage img{
+    width: 80%;
+    height: 400px;
+}
+
+.dvForm{
+    width: 100%;
+    height: 1000px;
+    display: inline-block;
+    
+    
+
+}
+
+.col{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input{
+    width: 250px;
+    height: 60px;
+    background-color: #ec7777;
+    border: none;
+    border-radius: 1rem;
+   text-align: center;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+input::placeholder{
+    text-align: center;
+    font-size: 20px;
+    color: #ffffff70;
+}
+
+
+.contador-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.contador-input {
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.contador-input::-webkit-inner-spin-button,
+.contador-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.botones-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    
+}
+
+.btn-contador {
+    width: 30px;
+    height: 30px;
+    background-color: #d31e1e;
+    border: 2px solid #ccc;
+    color: rgb(255, 255, 255);
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    padding: 0;
+}
+
+.btn-contador:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-contador:active {
+    background-color: #d0d0d0;
+}
+
+.lbForm{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color:#000000;
+    text-align: center;;
+}
+
+
+@media screen and (max-width: 400px){
+    .dvImage{
+       width: 100%;
+       height:600px;
+       
+    }
+    .dvImage img{
+        width: 80%;
+        height: 400px;
+    }
+
+    .dvSuccess{
+        margin-top: 100px;
+        margin-left: 150px;
+    }
+}
+
+p{
+    color: white;
+}
+
+
+.carousel {
+    /* background-color: #333; */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+    /* background-color: #5c339f; */
+  }
+  
+  .carousel-image {
+    /* background-color: #000000; */
+    position: absolute;
+    
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    
+  }
+  /* hola */
+  
+  .carousel-image.active {
+    opacity: 1;
+  }
+ 
+  .dvReferences  .label {
+    font-size: clamp(10px, 5vw, 25px);
+    font-weight: 900;
+    font-family: comic;
+    color: #ffffff
+}
+
+
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+     border-radius: 1rem;
+     opacity: 0.5;
+    font-size: 40px;
+    width: 30px;
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+  }
+
+  
+  .carousel-button.prev {
+    left: 10px;
+  }
+  
+  .carousel-button.next {
+    right: 10px;
+  }
+
+

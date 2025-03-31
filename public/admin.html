@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sorteos - Lisboa</title>
+    <link href="admin.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <img src="images/antoni_logo.png" class="fondoImg">
+    <div class="hero">
+        <div class="hero-items glow-button" id="btPedidos">
+            Pedidos
+        </div>
+        <div class="hero-items glow-button" id="btRegistros">
+            Registros
+        </div>
+        <div class="hero-items glow-button" id="btGanador">
+            Tickera
+        </div>
+    </div>
+    <div id="contenedorPedidos"></div>
+
+    <div id="contenedorRegistros" style="display: none;">
+        <div class="dvFiltro">
+            
+              <input id="inCorreo" type="text" placeholder="Correo..."></input>
+              <input id="inTicket" type="number" placeholder="No Ticket..."></input> 
+              <input id="inRef" type="number" placeholder="Referencia..." style="display:none;"></input>
+              <button id="btConsult" class="glow-button22 button" >Consultar</button>           
+        </div>
+        <div id="contenedorConsultas">
+
+            
+        </div>
+
+
+
+    </div>
+    <div id="contenedorGanador" style="display: none;"> 
+
+    </div>
+
+    <!-- Modal oculto al inicio -->
+<div id="modalBoleto" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2 id="tituloBoleto">Boleto #XXXX</h2>
+      <div id="detalleBoleto"></div>
+    </div>
+  </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

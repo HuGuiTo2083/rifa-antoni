@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar Boletos - Gran Rifa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .form-section {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid black;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: black;
+            font-size: 1rem;
+        }
+
+        .form-group select{
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: black;
+            
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+
+        .ticket-quantity {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quantity-btn {
+            background: var(--accent-color);
+            border: none;
+            color: var(--secondary-color);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .quantity-display {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+    </style>
+     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap');
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            place-items: center;
+            min-height: 250px;
+            background: linear-gradient(135deg, #2c2000 0%, #483500 100%);
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+        }
+
+        .ticket-text {
+            text-align: center;
+            position: relative;
+        }
+
+        .title {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #ffd700;
+            text-shadow: 
+                0 0 2px #ffd700,
+                0 0 4px rgba(255, 215, 0, 0.5);
+        }
+
+        .numbers {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            line-height: 1.5;
+        }
+
+        .number {
+            display: inline-block;
+            color: #ffd700;
+            text-shadow: 
+                0 0 2px #ffffff,
+                0 0 5px rgba(156, 145, 79, 0.7),
+                0 0 10px rgba(255, 255, 255, 0.3);
+            animation: glow 2s ease-in-out infinite;
+            background: linear-gradient(
+                90deg,
+                #ffeb7b 0%,
+                #fff3a0 50%,
+                #ffd700 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+
+        .number::after {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            right: -10%;
+            bottom: -10%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+            animation: pulse 2s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .number:nth-child(2n) {
+            animation-delay: 0.3s;
+        }
+
+        .number:nth-child(3n) {
+            animation-delay: 0.6s;
+        }
+
+        .comma {
+            color: #ffd700;
+            opacity: 0.7;
+            margin: 0 5px;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 
+                    0 0 2px #e3ddbb,
+                    0 0 5px rgba(255, 215, 0, 0.7),
+                    0 0 10px rgba(255, 215, 0, 0.3);
+            }
+            50% {
+                text-shadow: 
+                    0 0 4px #ffd700,
+                    0 0 10px rgba(255, 215, 0, 0.7),
+                    0 0 15px rgba(255, 215, 0, 0.5),
+                    0 0 20px rgba(255, 215, 0, 0.3);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                  <img src="images/antoni_logo.png" alt="Logo" style="width: 100px;height: 60px;">
+                </a>
+            </div>
+            <div class="cart">
+              <a href="index.html">Inicio</a>
+              <a href="login.html">Admin</a>
+
+               
+            </div>
+        </nav>
+    </header>
+    
+
+
+    <main>
+        <div class="grid-container" style="display: none;">
+            <div class="ticket-text">
+                <span class="glow-text">Tickets Premiados:</span>
+                <div class="numbers">
+                    <span class="number">0000</span><span class="comma">,</span>
+                    <span class="number">1111</span><span class="comma">,</span>
+                    <span class="number">2222</span><span class="comma">,</span>
+                    <span class="number">3333</span><span class="comma">,</span>
+                    <span class="number">4444</span><br>
+                    <span class="number">5555</span><span class="comma">,</span>
+                    <span class="number">6666</span><span class="comma">,</span>
+                    <span class="number">7777</span><span class="comma">,</span>
+                    <span class="number">8888</span><span class="comma">,</span>
+                    <span class="number">9999</span>
+                </div>
+            </div>
+        </div>
+  
+
+
+        <div class="titleTi">
+            <span class="glow-text">Tickets premiados:</span>
+            <img src="images/antoni_logo.png" id="imgL2">
+            <div class="gridPremiados">
+                <div class="premiado"> 0000</div>
+                <div class="premiado"> 1111</div>
+                <div class="premiado"> 2222</div>
+                <div class="premiado"> 3333</div>
+                <div class="premiado"> 4444</div>
+                <div class="premiado"> 5555</div>
+                <div class="premiado"> 6666</div>
+                <div class="premiado"> 7777</div>
+                <div class="premiado"> 8888</div>
+                <div class="vacio"> </div>
+    
+                <div class="premiado"> 9999</div>
+                <div class="vacio"> </div>
+    
+    
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text">
+                <span id="percentageText">0%</span>
+            </div>
+            <div class="progress-details" style="display: none;">
+                <span id="ticketsSold">0</span>
+                <span>/ 10,000 boletos</span>
+            </div>
+        </div>
+
+        
+      <section class="prizes">
+        <h2 class=" child section-title">2 AFORTUNADOS GANADORES</h2>
+
+        <div class="prize-card" id="prize1">
+            <h3 class="gt">1ER PREMIO</h3>
+            <div class="prize-content">
+                <h4 class="gt">MOTO BERA SOCIALISTA</h4>
+                <h4 class="gt">MOTO BERA BRF 150cc</h4>
+                <ul class="features">
+                    <!-- <li>3 habitaciones</li>
+                    <li>Tanque de agua</li>
+                    <li>Aires Acondicionados</li>
+                    <li>Puestos de estacionamiento</li>
+                    <li>Ubicación: Prebo, Valencia Carabobo</li> -->
+                </ul>
+                <div class="prize-images">
+                    <img src="images/folleto base.jpg" alt="Moto">
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="prize-card" id="prize2">
+            <h3 class="gt">2DO PREMIO</h3>
+            <div class="prize-content">
+                <h4 class="gt">Moto Bera SBR</h4>
+                <ul class="features">
+                </ul>
+                <div class="prize-images">
+                    <img src="images/two2.jpg" alt="Moto">
+                </div>
+            </div>
+        </div>
+
+        <div class="prize-card" id="prize3">
+            <h3 class="gt">3ER PREMIO (Al que compre más Tickets)</h3>
+            <div class="prize-content">
+                <h4 class="gt">Moto Bera Cobra</h4>
+                <ul class="features">
+                </ul>
+                <div class="prize-images">
+                    <img src="images/three1.jpg" alt="Moto">
+                </div>
+
+            </div>
+        </div> -->
+    </section>
+
+    <section class="payment-methods">
+      <h3 class="child">MÉTODOS DE PAGO</h3>
+      <div class="payment-grid">
+          <div class="payment-item ">
+            <img src="images/pagomovil_new.png" style="width: 150px; height: 150px;">
+            <h4>Pago móvil Venezuela</h4>
+              <div class="line">
+                  <p ><b>CI:</b> 22338371 &nbsp;</p>
+                  <button class="copy-btn" id="textToCopy" onclick="copyText('22338371')">
+                      <svg style="position: relative;bottom: 6px; " id='Clipboard_24' width='20' height='20'
+                          viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'
+                          xmlns:xlink='http://www.w3.org/1999/xlink'>
+                          <rect width='24' height='24' stroke='none' fill='white' opacity='0' />
+                          <g transform="matrix(0.5 0 0 0.5 12 12)">
+                              <path
+                                  style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255, 255, 255); fill-rule: nonzero; opacity: 1;"
+                                  transform=" translate(-24, -23)"
+                                  d="M 20.5 3 C 18.203405 3 16.305701 4.7666235 16.050781 7 L 12.5 7 C 10.032499 7 8 9.0324991 8 11.5 L 8 38.5 C 8 40.967501 10.032499 43 12.5 43 L 35.5 43 C 37.967501 43 40 40.967501 40 38.5 L 40 11.5 C 40 9.0324991 37.967501 7 35.5 7 L 31.949219 7 C 31.694299 4.7666235 29.796595 3 27.5 3 L 20.5 3 z M 20.5 6 L 27.5 6 C 28.346499 6 29 6.6535009 29 7.5 C 29 8.3464991 28.346499 9 27.5 9 L 20.5 9 C 19.653501 9 19 8.3464991 19 7.5 C 19 6.6535009 19.653501 6 20.5 6 z M 12.5 10 L 16.769531 10 C 17.581237 11.2019 18.954719 12 20.5 12 L 27.5 12 C 29.045281 12 30.418763 11.2019 31.230469 10 L 35.5 10 C 36.346499 10 37 10.653501 37 11.5 L 37 38.5 C 37 39.346499 36.346499 40 35.5 40 L 12.5 40 C 11.653501 40 11 39.346499 11 38.5 L 11 11.5 C 11 10.653501 11.653501 10 12.5 10 z M 16.5 17 C 15.959046125133643 16.992349565681767 15.455877953142583 17.276562944253993 15.183168417770215 17.743809274571493 C 14.910458882397847 18.211055604888994 14.910458882397846 18.788944395111006 15.183168417770215 19.256190725428507 C 15.455877953142583 19.723437055746007 15.959046125133643 20.007650434318233 16.5 20 L 31.5 20 C 32.040953874866354 20.007650434318233 32.54412204685742 19.723437055746007 32.81683158222979 19.256190725428507 C 33.08954111760215 18.788944395111006 33.08954111760215 18.211055604888994 32.81683158222979 17.743809274571493 C 32.54412204685742 17.276562944253993 32.040953874866354 16.992349565681767 31.5 17 L 16.5 17 z M 16.5 25 C 15.959046125133643 24.992349565681767 15.455877953142583 25.276562944253993 15.183168417770215 25.743809274571493 C 14.910458882397847 26.211055604888994 14.910458882397846 26.788944395111006 15.183168417770215 27.256190725428507 C 15.455877953142583 27.723437055746007 15.959046125133643 28.007650434318233 16.5 28 L 23.5 28 C 24.040953874866357 28.007650434318233 24.544122046857417 27.723437055746007 24.816831582229785 27.256190725428507 C 25.089541117602153 26.788944395111006 25.089541117602153 26.211055604888994 24.816831582229785 25.743809274571493 C 24.544122046857417 25.276562944253993 24.040953874866357 24.992349565681767 23.5 25 L 16.5 25 z M 16.5 33 C 15.959046125133643 32.99234956568177 15.455877953142583 33.27656294425399 15.183168417770215 33.74380927457149 C 14.910458882397847 34.21105560488899 14.910458882397846 34.78894439511101 15.183168417770215 35.25619072542851 C 15.455877953142583 35.723437055746004 15.959046125133643 36.00765043431823 16.5 36 L 27.5 36 C 28.040953874866357 36.00765043431823 28.544122046857417 35.72343705574601 28.816831582229785 35.25619072542851 C 29.089541117602153 34.78894439511101 29.089541117602153 34.21105560488899 28.816831582229785 33.74380927457149 C 28.544122046857417 33.27656294425399 28.040953874866357 32.99234956568177 27.5 33 L 16.5 33 z"
+                                  stroke-linecap="round" />
+                          </g>
+                      </svg>
+                  </button>
+              </div>
+
+
+              <div class="line">
+                  <p style="color:black"><b>Teléfono:</b> 04243131639 &nbsp;</p>
+                  <button class="copy-btn" id="textToCopy" onclick="copyText('04243131639')">
+                      <svg style="position: relative;bottom: 6px; " id='Clipboard_24' width='20' height='20'
+                          viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'
+                          xmlns:xlink='http://www.w3.org/1999/xlink'>
+                          <rect width='24' height='24' stroke='none' fill='white' opacity='0' />
+                          <g transform="matrix(0.5 0 0 0.5 12 12)">
+                              <path
+                                  style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255, 255, 255); fill-rule: nonzero; opacity: 1;"
+                                  transform=" translate(-24, -23)"
+                                  d="M 20.5 3 C 18.203405 3 16.305701 4.7666235 16.050781 7 L 12.5 7 C 10.032499 7 8 9.0324991 8 11.5 L 8 38.5 C 8 40.967501 10.032499 43 12.5 43 L 35.5 43 C 37.967501 43 40 40.967501 40 38.5 L 40 11.5 C 40 9.0324991 37.967501 7 35.5 7 L 31.949219 7 C 31.694299 4.7666235 29.796595 3 27.5 3 L 20.5 3 z M 20.5 6 L 27.5 6 C 28.346499 6 29 6.6535009 29 7.5 C 29 8.3464991 28.346499 9 27.5 9 L 20.5 9 C 19.653501 9 19 8.3464991 19 7.5 C 19 6.6535009 19.653501 6 20.5 6 z M 12.5 10 L 16.769531 10 C 17.581237 11.2019 18.954719 12 20.5 12 L 27.5 12 C 29.045281 12 30.418763 11.2019 31.230469 10 L 35.5 10 C 36.346499 10 37 10.653501 37 11.5 L 37 38.5 C 37 39.346499 36.346499 40 35.5 40 L 12.5 40 C 11.653501 40 11 39.346499 11 38.5 L 11 11.5 C 11 10.653501 11.653501 10 12.5 10 z M 16.5 17 C 15.959046125133643 16.992349565681767 15.455877953142583 17.276562944253993 15.183168417770215 17.743809274571493 C 14.910458882397847 18.211055604888994 14.910458882397846 18.788944395111006 15.183168417770215 19.256190725428507 C 15.455877953142583 19.723437055746007 15.959046125133643 20.007650434318233 16.5 20 L 31.5 20 C 32.040953874866354 20.007650434318233 32.54412204685742 19.723437055746007 32.81683158222979 19.256190725428507 C 33.08954111760215 18.788944395111006 33.08954111760215 18.211055604888994 32.81683158222979 17.743809274571493 C 32.54412204685742 17.276562944253993 32.040953874866354 16.992349565681767 31.5 17 L 16.5 17 z M 16.5 25 C 15.959046125133643 24.992349565681767 15.455877953142583 25.276562944253993 15.183168417770215 25.743809274571493 C 14.910458882397847 26.211055604888994 14.910458882397846 26.788944395111006 15.183168417770215 27.256190725428507 C 15.455877953142583 27.723437055746007 15.959046125133643 28.007650434318233 16.5 28 L 23.5 28 C 24.040953874866357 28.007650434318233 24.544122046857417 27.723437055746007 24.816831582229785 27.256190725428507 C 25.089541117602153 26.788944395111006 25.089541117602153 26.211055604888994 24.816831582229785 25.743809274571493 C 24.544122046857417 25.276562944253993 24.040953874866357 24.992349565681767 23.5 25 L 16.5 25 z M 16.5 33 C 15.959046125133643 32.99234956568177 15.455877953142583 33.27656294425399 15.183168417770215 33.74380927457149 C 14.910458882397847 34.21105560488899 14.910458882397846 34.78894439511101 15.183168417770215 35.25619072542851 C 15.455877953142583 35.723437055746004 15.959046125133643 36.00765043431823 16.5 36 L 27.5 36 C 28.040953874866357 36.00765043431823 28.544122046857417 35.72343705574601 28.816831582229785 35.25619072542851 C 29.089541117602153 34.78894439511101 29.089541117602153 34.21105560488899 28.816831582229785 33.74380927457149 C 28.544122046857417 33.27656294425399 28.040953874866357 32.99234956568177 27.5 33 L 16.5 33 z"
+                                  stroke-linecap="round" />
+                          </g>
+                      </svg>
+                  </button>
+              </div>
+              <div class="line">
+                  <p><b>Banco:</b> 0102 VENEZUELA &nbsp;</p>
+                  <button class="copy-btn" id="textToCopy" onclick="copyText('0102')">
+                      <svg style="position: relative;bottom: 6px; " id='Clipboard_24' width='20' height='20'
+                          viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'
+                          xmlns:xlink='http://www.w3.org/1999/xlink'>
+                          <rect width='24' height='24' stroke='none' fill='white' opacity='0' />
+                          <g transform="matrix(0.5 0 0 0.5 12 12)">
+                              <path
+                                  style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255, 255, 255); fill-rule: nonzero; opacity: 1;"
+                                  transform=" translate(-24, -23)"
+                                  d="M 20.5 3 C 18.203405 3 16.305701 4.7666235 16.050781 7 L 12.5 7 C 10.032499 7 8 9.0324991 8 11.5 L 8 38.5 C 8 40.967501 10.032499 43 12.5 43 L 35.5 43 C 37.967501 43 40 40.967501 40 38.5 L 40 11.5 C 40 9.0324991 37.967501 7 35.5 7 L 31.949219 7 C 31.694299 4.7666235 29.796595 3 27.5 3 L 20.5 3 z M 20.5 6 L 27.5 6 C 28.346499 6 29 6.6535009 29 7.5 C 29 8.3464991 28.346499 9 27.5 9 L 20.5 9 C 19.653501 9 19 8.3464991 19 7.5 C 19 6.6535009 19.653501 6 20.5 6 z M 12.5 10 L 16.769531 10 C 17.581237 11.2019 18.954719 12 20.5 12 L 27.5 12 C 29.045281 12 30.418763 11.2019 31.230469 10 L 35.5 10 C 36.346499 10 37 10.653501 37 11.5 L 37 38.5 C 37 39.346499 36.346499 40 35.5 40 L 12.5 40 C 11.653501 40 11 39.346499 11 38.5 L 11 11.5 C 11 10.653501 11.653501 10 12.5 10 z M 16.5 17 C 15.959046125133643 16.992349565681767 15.455877953142583 17.276562944253993 15.183168417770215 17.743809274571493 C 14.910458882397847 18.211055604888994 14.910458882397846 18.788944395111006 15.183168417770215 19.256190725428507 C 15.455877953142583 19.723437055746007 15.959046125133643 20.007650434318233 16.5 20 L 31.5 20 C 32.040953874866354 20.007650434318233 32.54412204685742 19.723437055746007 32.81683158222979 19.256190725428507 C 33.08954111760215 18.788944395111006 33.08954111760215 18.211055604888994 32.81683158222979 17.743809274571493 C 32.54412204685742 17.276562944253993 32.040953874866354 16.992349565681767 31.5 17 L 16.5 17 z M 16.5 25 C 15.959046125133643 24.992349565681767 15.455877953142583 25.276562944253993 15.183168417770215 25.743809274571493 C 14.910458882397847 26.211055604888994 14.910458882397846 26.788944395111006 15.183168417770215 27.256190725428507 C 15.455877953142583 27.723437055746007 15.959046125133643 28.007650434318233 16.5 28 L 23.5 28 C 24.040953874866357 28.007650434318233 24.544122046857417 27.723437055746007 24.816831582229785 27.256190725428507 C 25.089541117602153 26.788944395111006 25.089541117602153 26.211055604888994 24.816831582229785 25.743809274571493 C 24.544122046857417 25.276562944253993 24.040953874866357 24.992349565681767 23.5 25 L 16.5 25 z M 16.5 33 C 15.959046125133643 32.99234956568177 15.455877953142583 33.27656294425399 15.183168417770215 33.74380927457149 C 14.910458882397847 34.21105560488899 14.910458882397846 34.78894439511101 15.183168417770215 35.25619072542851 C 15.455877953142583 35.723437055746004 15.959046125133643 36.00765043431823 16.5 36 L 27.5 36 C 28.040953874866357 36.00765043431823 28.544122046857417 35.72343705574601 28.816831582229785 35.25619072542851 C 29.089541117602153 34.78894439511101 29.089541117602153 34.21105560488899 28.816831582229785 33.74380927457149 C 28.544122046857417 33.27656294425399 28.040953874866357 32.99234956568177 27.5 33 L 16.5 33 z"
+                                  stroke-linecap="round" />
+                          </g>
+                      </svg>
+                  </button>
+              </div>
+          </div>
+
+          <!-- <div class="payment-item ">
+            <img src="images/Binance_3.png" style="width: 110px; height: 80px;">
+
+              <h4>Binance USDT</h4>
+              <div class="line">
+                  <p><b>Email:</b> deivyssilva2019@gmail.com &nbsp;</p>
+                  <button class="copy-btn" id="textToCopy" onclick="copyText('deivyssilva2019@gmail.com')">
+                      <svg style="position: relative;bottom: 6px; " id='Clipboard_24' width='20' height='20'
+                          viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'
+                          xmlns:xlink='http://www.w3.org/1999/xlink'>
+                          <rect width='24' height='24' stroke='none' fill='white' opacity='0' />
+                          <g transform="matrix(0.5 0 0 0.5 12 12)">
+                              <path
+                                  style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255, 255, 255); fill-rule: nonzero; opacity: 1;"
+                                  transform=" translate(-24, -23)"
+                                  d="M 20.5 3 C 18.203405 3 16.305701 4.7666235 16.050781 7 L 12.5 7 C 10.032499 7 8 9.0324991 8 11.5 L 8 38.5 C 8 40.967501 10.032499 43 12.5 43 L 35.5 43 C 37.967501 43 40 40.967501 40 38.5 L 40 11.5 C 40 9.0324991 37.967501 7 35.5 7 L 31.949219 7 C 31.694299 4.7666235 29.796595 3 27.5 3 L 20.5 3 z M 20.5 6 L 27.5 6 C 28.346499 6 29 6.6535009 29 7.5 C 29 8.3464991 28.346499 9 27.5 9 L 20.5 9 C 19.653501 9 19 8.3464991 19 7.5 C 19 6.6535009 19.653501 6 20.5 6 z M 12.5 10 L 16.769531 10 C 17.581237 11.2019 18.954719 12 20.5 12 L 27.5 12 C 29.045281 12 30.418763 11.2019 31.230469 10 L 35.5 10 C 36.346499 10 37 10.653501 37 11.5 L 37 38.5 C 37 39.346499 36.346499 40 35.5 40 L 12.5 40 C 11.653501 40 11 39.346499 11 38.5 L 11 11.5 C 11 10.653501 11.653501 10 12.5 10 z M 16.5 17 C 15.959046125133643 16.992349565681767 15.455877953142583 17.276562944253993 15.183168417770215 17.743809274571493 C 14.910458882397847 18.211055604888994 14.910458882397846 18.788944395111006 15.183168417770215 19.256190725428507 C 15.455877953142583 19.723437055746007 15.959046125133643 20.007650434318233 16.5 20 L 31.5 20 C 32.040953874866354 20.007650434318233 32.54412204685742 19.723437055746007 32.81683158222979 19.256190725428507 C 33.08954111760215 18.788944395111006 33.08954111760215 18.211055604888994 32.81683158222979 17.743809274571493 C 32.54412204685742 17.276562944253993 32.040953874866354 16.992349565681767 31.5 17 L 16.5 17 z M 16.5 25 C 15.959046125133643 24.992349565681767 15.455877953142583 25.276562944253993 15.183168417770215 25.743809274571493 C 14.910458882397847 26.211055604888994 14.910458882397846 26.788944395111006 15.183168417770215 27.256190725428507 C 15.455877953142583 27.723437055746007 15.959046125133643 28.007650434318233 16.5 28 L 23.5 28 C 24.040953874866357 28.007650434318233 24.544122046857417 27.723437055746007 24.816831582229785 27.256190725428507 C 25.089541117602153 26.788944395111006 25.089541117602153 26.211055604888994 24.816831582229785 25.743809274571493 C 24.544122046857417 25.276562944253993 24.040953874866357 24.992349565681767 23.5 25 L 16.5 25 z M 16.5 33 C 15.959046125133643 32.99234956568177 15.455877953142583 33.27656294425399 15.183168417770215 33.74380927457149 C 14.910458882397847 34.21105560488899 14.910458882397846 34.78894439511101 15.183168417770215 35.25619072542851 C 15.455877953142583 35.723437055746004 15.959046125133643 36.00765043431823 16.5 36 L 27.5 36 C 28.040953874866357 36.00765043431823 28.544122046857417 35.72343705574601 28.816831582229785 35.25619072542851 C 29.089541117602153 34.78894439511101 29.089541117602153 34.21105560488899 28.816831582229785 33.74380927457149 C 28.544122046857417 33.27656294425399 28.040953874866357 32.99234956568177 27.5 33 L 16.5 33 z"
+                                  stroke-linecap="round" />
+                          </g>
+                      </svg>
+                  </button>
+              </div>
+              <div class="line">
+              <p><b>ID:</b> 525762188 &nbsp;</p>
+              <button class="copy-btn" id="textToCopy" onclick="copyText('525762188')">
+                  <svg style="position: relative;bottom: 6px; " id='Clipboard_24' width='20' height='20'
+                      viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'
+                      xmlns:xlink='http://www.w3.org/1999/xlink'>
+                      <rect width='24' height='24' stroke='none' fill='white' opacity='0' />
+                      <g transform="matrix(0.5 0 0 0.5 12 12)">
+                          <path
+                              style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255, 255, 255); fill-rule: nonzero; opacity: 1;"
+                              transform=" translate(-24, -23)"
+                              d="M 20.5 3 C 18.203405 3 16.305701 4.7666235 16.050781 7 L 12.5 7 C 10.032499 7 8 9.0324991 8 11.5 L 8 38.5 C 8 40.967501 10.032499 43 12.5 43 L 35.5 43 C 37.967501 43 40 40.967501 40 38.5 L 40 11.5 C 40 9.0324991 37.967501 7 35.5 7 L 31.949219 7 C 31.694299 4.7666235 29.796595 3 27.5 3 L 20.5 3 z M 20.5 6 L 27.5 6 C 28.346499 6 29 6.6535009 29 7.5 C 29 8.3464991 28.346499 9 27.5 9 L 20.5 9 C 19.653501 9 19 8.3464991 19 7.5 C 19 6.6535009 19.653501 6 20.5 6 z M 12.5 10 L 16.769531 10 C 17.581237 11.2019 18.954719 12 20.5 12 L 27.5 12 C 29.045281 12 30.418763 11.2019 31.230469 10 L 35.5 10 C 36.346499 10 37 10.653501 37 11.5 L 37 38.5 C 37 39.346499 36.346499 40 35.5 40 L 12.5 40 C 11.653501 40 11 39.346499 11 38.5 L 11 11.5 C 11 10.653501 11.653501 10 12.5 10 z M 16.5 17 C 15.959046125133643 16.992349565681767 15.455877953142583 17.276562944253993 15.183168417770215 17.743809274571493 C 14.910458882397847 18.211055604888994 14.910458882397846 18.788944395111006 15.183168417770215 19.256190725428507 C 15.455877953142583 19.723437055746007 15.959046125133643 20.007650434318233 16.5 20 L 31.5 20 C 32.040953874866354 20.007650434318233 32.54412204685742 19.723437055746007 32.81683158222979 19.256190725428507 C 33.08954111760215 18.788944395111006 33.08954111760215 18.211055604888994 32.81683158222979 17.743809274571493 C 32.54412204685742 17.276562944253993 32.040953874866354 16.992349565681767 31.5 17 L 16.5 17 z M 16.5 25 C 15.959046125133643 24.992349565681767 15.455877953142583 25.276562944253993 15.183168417770215 25.743809274571493 C 14.910458882397847 26.211055604888994 14.910458882397846 26.788944395111006 15.183168417770215 27.256190725428507 C 15.455877953142583 27.723437055746007 15.959046125133643 28.007650434318233 16.5 28 L 23.5 28 C 24.040953874866357 28.007650434318233 24.544122046857417 27.723437055746007 24.816831582229785 27.256190725428507 C 25.089541117602153 26.788944395111006 25.089541117602153 26.211055604888994 24.816831582229785 25.743809274571493 C 24.544122046857417 25.276562944253993 24.040953874866357 24.992349565681767 23.5 25 L 16.5 25 z M 16.5 33 C 15.959046125133643 32.99234956568177 15.455877953142583 33.27656294425399 15.183168417770215 33.74380927457149 C 14.910458882397847 34.21105560488899 14.910458882397846 34.78894439511101 15.183168417770215 35.25619072542851 C 15.455877953142583 35.723437055746004 15.959046125133643 36.00765043431823 16.5 36 L 27.5 36 C 28.040953874866357 36.00765043431823 28.544122046857417 35.72343705574601 28.816831582229785 35.25619072542851 C 29.089541117602153 34.78894439511101 29.089541117602153 34.21105560488899 28.816831582229785 33.74380927457149 C 28.544122046857417 33.27656294425399 28.040953874866357 32.99234956568177 27.5 33 L 16.5 33 z"
+                              stroke-linecap="round" />
+                      </g>
+                  </svg>
+              </button>
+          </div>
+          </div> -->
+
+         
+      </div>
+  </section>
+<!-- hola -->
+        <section class="form-section">
+            <h2 class="section-title" style="color: black">DATOS DE COMPRA</h2>
+            <form id="pedidoForm" class="dvForm">
+                <div class="ticket-quantity">
+                  <div class="dvContaIn">
+                    <span>Nro:</span>
+                    <input type="number" id="contador" class="contador-input" value="1" min="1">
+                  </div>  
+                  
+                    <button type="button" class="quantity-btn" id="decrementar">-</button>
+                    <span class="quantity-display" id="precio">1 USD</span>
+                    <h2>-</h2>
+                    <!-- <span class="quantity-display" id="precio2">136.00 Bs</span> -->
+                    <button type="button" class="quantity-btn" id="incrementar">+</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="nombre" style="color: black">Nombre:</label>
+                    <input type="text" id="inName" name="nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="apellidos" style="color: black">Apellidos:</label>
+                    <input type="text" id="inLastName" name="apellidos" required>
+                </div>
+               
+                <div class="form-group">
+                    <label for="for" style="color: black">4 Últimos números de Referencia:</label>
+                    <input type="number" id="inFor" name="for" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="email" style="color: black">Correo Electrónico:</label>
+                  <input type="email" id="inEmail" name="email" required>
+              </div>
+
+                <div class="form-group">
+                    <label for="telefono" style="color: black">Teléfono:</label>
+                
+                    <input type="text" id="inNumber" name="telefono" required
+                     placeholder="Ingresa número completo con el +Codigo de Tu País">
+                </div>
+
+                <button type="submit" class="buy-button glow-button" id="btPedir" style="color: white">CONFIRMAR COMPRA</button>
+            </form>
+        </section>
+        
+
+       
+
+        <section class="timer-section">
+            <div class="timer">
+                <p>⏰ Recuerda: Tienes <span id="countdown">1:00:00</span> para completar el pago</p>
+                <p>Si no lo haces, los boletos serán liberados para otros participantes.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <img src="images/tachira.png" alt="Logo" style="width: 100px; ">
+            <img src="images/supergana.png" alt="Logo" style="width: 100px; ">
+        </div>
+    </footer>
+    <script src="compra.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function copyText(text) {
+
+
+            // Copiar al portapapeles
+            navigator.clipboard.writeText(text)
+                .then(() => {
+                    // Mostrar mensaje de éxito
+
+                    console.log('f')
+                    alert('Copiado Exitosamente')
+                    // Ocultar mensaje después de 2 segundos
+
+                })
+                .catch(err => {
+                    console.error('Error al copiar:', err);
+                    alert('No se pudo copiar el texto. Por favor, inténtalo de nuevo.');
+                });
+        }
+    </script>
+</body>
+</html>
