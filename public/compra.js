@@ -78,7 +78,7 @@ else{
     const btnIncrementar = document.getElementById('incrementar');
     const btnDecrementar = document.getElementById('decrementar');
     const labelPrecio = document.getElementById('precio');
-    //const labelPrecio2 = document.getElementById('precio2');
+    const labelPrecio2 = document.getElementById('precio2');
     const PRECIO_BASE = 1; // Precio base por unidad
     const PRECIO_BASE_BS = 68;
     let cantidad = parseInt(input.value);
@@ -87,7 +87,7 @@ else{
         cantidad = parseInt(input.value);
         const precioTotal = cantidad * PRECIO_BASE;
         const precioTotal2 = cantidad * PRECIO_BASE_BS;
-       // labelPrecio2.textContent = `${precioTotal2}.00 Bs`;
+        labelPrecio2.textContent = `${precioTotal2}.00 Bs`;
 
         labelPrecio.textContent = `${precioTotal} USD`;
     }
