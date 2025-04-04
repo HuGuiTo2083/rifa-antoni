@@ -79,7 +79,7 @@ else{
     const btnDecrementar = document.getElementById('decrementar');
     const labelPrecio = document.getElementById('precio');
     const labelPrecio2 = document.getElementById('precio2');
-    const PRECIO_BASE = 1; // Precio base por unidad
+    const PRECIO_BASE = 2; // Precio base por unidad
     const PRECIO_BASE_BS = 68;
     let cantidad = parseInt(input.value);
 
@@ -105,7 +105,7 @@ else{
 
     btnDecrementar.addEventListener('click', () => {
         const nuevoValor = parseInt(input.value) - 1;
-        if (nuevoValor >= 1) {
+        if (nuevoValor >= 2) {
             input.value = nuevoValor;
             actualizarPrecio();
         }
@@ -172,7 +172,7 @@ else{
             // console.log('Respuesta en texto:', text); // <-- para ver si es HTML o JSON
 
             if (data.success) {
-                alert('Pedido realizado correctamente');
+                alert('Compra exitosa, tu compra será aprobada en un plazo de 24 hrs, te estará llegando un correo, favor de estar checando spam o correos no deseados');
                 e.target.reset();
                 document.getElementById('contador').value = 1;
                 actualizarPrecio();
