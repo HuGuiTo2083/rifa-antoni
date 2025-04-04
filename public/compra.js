@@ -79,7 +79,7 @@ else{
     const btnDecrementar = document.getElementById('decrementar');
     const labelPrecio = document.getElementById('precio');
     const labelPrecio2 = document.getElementById('precio2');
-    const PRECIO_BASE = 2; // Precio base por unidad
+    const PRECIO_BASE = 1; // Precio base por unidad
     const PRECIO_BASE_BS = 68;
     let cantidad = parseInt(input.value);
 
