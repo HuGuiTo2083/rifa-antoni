@@ -328,7 +328,8 @@ app.post('/api/pedidos', async (req, res) => {
         PEDIDO_BOLETOS,
         PEDIDO_PRECIO_TOTAL,
         PEDIDO_REFERENCIAS,
-        PEDIDO_NUMERO
+        PEDIDO_NUMERO,
+        PEDIDO_DATE
         
       ) VALUES (
         ${pedido.nombre},
@@ -337,7 +338,8 @@ app.post('/api/pedidos', async (req, res) => {
         ${pedido.boletos},
         ${pedido.precioTotal},
         ${pedido.referencias},
-        ${pedido.numero}
+        ${pedido.numero},
+        ${pedido.date}
       )
       RETURNING *
     `;

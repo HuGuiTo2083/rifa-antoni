@@ -155,6 +155,12 @@ else{
         pedido.aprobado = false
         pedido.boletos = parseInt(cantidad);
         pedido.precioTotal = parseInt(document.getElementById('precio').textContent);
+        const hoy = new Date();
+const dia = String(hoy.getDate()).padStart(2, '0');
+const mes = String(hoy.getMonth() + 1).padStart(2, '0'); // los meses empiezan en 0
+const anio = hoy.getFullYear();
+
+pedido.date = `${dia}/${mes}/${anio}`;
         // pedido.metodoPago = document.getElementById('selectM').value
         
         try {

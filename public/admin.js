@@ -310,6 +310,8 @@ async function cargarPedidos() {
                 <p><strong>Número:</strong> ${pedido.pedido_numero}</p>
                 <p><strong>Precio:</strong> $${pedido.pedido_precio_total} USD</p>
                 <p><strong>No. de Boletos:</strong> ${pedido.pedido_boletos} </p>
+                <p><strong>Fecha de Compra:</strong> ${pedido.pedido_date} </p>
+
                 <button 
                     class="btnAprobar" 
                     onclick="aprobarPedido('${pedido.pedido_referencias}', '${pedido.pedido_correo}', '${pedido.pedido_boletos}')"
