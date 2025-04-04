@@ -87,10 +87,22 @@ else{
         cantidad = parseInt(input.value);
         const precioTotal = cantidad * PRECIO_BASE;
         const precioTotal2 = cantidad * PRECIO_BASE_BS;
-        labelPrecio2.textContent = `${precioTotal2}.00 Bs`;
+        if(cantidad == 1 || cantidad<1){
+            labelPrecio2.textContent = `136.00 Bs`;
 
-        labelPrecio.textContent = `${precioTotal} USD`;
+            labelPrecio.textContent = `2 USD`;
+        }
+        else{
+            labelPrecio2.textContent = `${precioTotal2}.00 Bs`;
+
+            labelPrecio.textContent = `${precioTotal} USD`;
+        }
+        
     }
+
+    input.addEventListener('input', ()=>{
+ actualizarPrecio()
+    });
 
 
     // Asegurar valor mínimo de 1
