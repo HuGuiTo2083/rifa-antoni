@@ -206,6 +206,13 @@ nav {
     animation: glow 2s ease-in-out infinite;
 }
 
+.glow-text7 {
+    font-weight: 800;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgb(126, 250, 101);
+    animation: glow7 2s ease-in-out infinite;
+}
+
 
 
 .prize-amount {
@@ -495,6 +502,15 @@ footer {
     }
     50% {
         text-shadow: 0 0 20px var(--accent-color), 0 0 30px var(--accent-color);
+    }
+}
+
+@keyframes glow7 {
+    0%, 100% {
+        text-shadow: 0 0 10px rgb(126, 250, 101);;
+    }
+    50% {
+        text-shadow: 0 0 20px rgb(126, 250, 101);, 0 0 30px rgb(126, 250, 101);;
     }
 }
 

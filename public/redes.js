@@ -12,7 +12,7 @@ ig.addEventListener('click', () => {
 
 wa.addEventListener('click', () => {
 
-    window.location.href = "https://wa.me/+584121863814"
+    window.location.href = "https://wa.me/+584125742187"
 
 }
 )
