@@ -5,8 +5,16 @@
 const ig = document.getElementById('btRedesIG')
      
 const wa = document.getElementById('btRedesWA')
+
+const tt = document.getElementById('btRedesTT')
+
 ig.addEventListener('click', () => {
    window.location.href = "https://www.instagram.com/ganamosconantoni?igsh=MTFyaGRrdzN0cnJ4NQ=="
+
+})
+
+tt.addEventListener('click', () => {
+  window.location.href = "https://www.tiktok.com/@undeliverydepartededios?_t=ZM-8vVpzUb81Wo&_r=1"
 
 })
 
