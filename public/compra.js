@@ -80,7 +80,7 @@ else{
     const labelPrecio = document.getElementById('precio');
     const labelPrecio2 = document.getElementById('precio2');
     const PRECIO_BASE = 1; // Precio base por unidad
-    const PRECIO_BASE_BS = 68;
+    const PRECIO_BASE_BS = 78.50;
     let cantidad = parseInt(input.value);
 
       function actualizarPrecio() {
@@ -88,12 +88,12 @@ else{
         const precioTotal = cantidad * PRECIO_BASE;
         const precioTotal2 = cantidad * PRECIO_BASE_BS;
         if(cantidad == 1 || cantidad<1){
-            labelPrecio2.textContent = `136.00 Bs`;
+            labelPrecio2.textContent = `157.00 Bs`;
 
             labelPrecio.textContent = `2 USD`;
         }
         else{
-            labelPrecio2.textContent = `${precioTotal2}.00 Bs`;
+            labelPrecio2.textContent = `${precioTotal2} Bs`;
 
             labelPrecio.textContent = `${precioTotal} USD`;
         }
