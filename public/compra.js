@@ -190,7 +190,7 @@ pedido.date = `${dia}/${mes}/${anio}`;
             // console.log('Respuesta en texto:', text); // <-- para ver si es HTML o JSON
 
             if (data.success) {
-                alert('Compra exitosa, tu compra será aprobada en un plazo de 24 hrs, te estará llegando un correo, favor de estar checando spam o correos no deseados');
+                alert('Gracias por tu compra. Su pedido será aprobado en un plazo de 24 horas. Recibirá un correo electrónico con sus números de tickets los cuales son elegidos aleatoriamente por nuestro sistema; le recomendamos también revisar su bandeja de spam o correo no deseado en caso de no verlo en su bandeja de entrada.');
                 e.target.reset();
                 document.getElementById('contador').value = 1;
                 actualizarPrecio();
