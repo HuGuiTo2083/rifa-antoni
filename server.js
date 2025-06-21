@@ -4,9 +4,10 @@ import cors from 'cors';
 import nodemailer from 'nodemailer';
 // import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import { dirname, join }     from 'path';   // ← añade join
 
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname  = dirname(__filename);
 
 // dotenv.config();
 console.log('URL de conexión:', process.env.DATABASE_URL);
@@ -20,7 +21,10 @@ const app = express();
 
 // Middleware para parsear JSON y servir archivos estáticos
 app.use(express.json());
-app.use(express.static('public'));
+//app.use(express.static('public'));
+app.use(express.static(join(__dirname, 'public')));
+
+
 
 // Configuración de CORS (ajusta los orígenes según tus necesidades)
 app.use(
@@ -35,10 +39,6 @@ app.use(
     allowedHeaders: ['Content-Type', 'Authorization']
   })
 );
-
-// Para obtener la ruta del archivo
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 // =============================
 // Configuración de Nodemailer
@@ -556,6 +556,8 @@ console.error('Stack completo del error:', error.stack);
 // Iniciar el servidor
 // =============================
 const port = process.env.PORT || 3000;
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Servidor corriendo en puerto ${port}`);
-});
+// app.listen(port, '0.0.0.0', () => {
+//   console.log(`Servidor corriendo en puerto ${port}`);
+// });
+
+export default app
